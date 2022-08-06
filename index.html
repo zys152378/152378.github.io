@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #tip {
+            position: absolute;
+            width: 100%;
+            height: 520px;
+            top: 100px;
+
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(240, 236, 216);
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        .title {
+            font-family: 'Courier New', Courier, monospace;
+            /* 字体 */
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 120%;
+            text-align: center;
+            color: rgb(100, 90, 139);
+        }
+
+        .title1 {
+            font-family: 'Courier New', Courier, monospace;
+            /* 字体 */
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 100%;
+            text-align: center;
+            color: rgb(100, 90, 139);
+        }
+
+        .ar-ul {
+            position: relative;
+            left: 102px;
+            width: 1285px;
+            height: 388px;
+            top: -55px;
+            display: flex;
+            overflow: hidden;
+            background-color: rgb(235, 233, 226);
+        }
+
+        li {
+            position: absolute;
+            left: 0;
+            transition: .6s;
+        }
+
+        .ar-left {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            left: 124px;
+            top: 198px;
+            background-color: aliceblue;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            z-index: 999;
+            background-color: rgb(235, 233, 226);
+        }
+
+        .ar-right {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            left: 1313px;
+            top: 158px;
+            background-color: aliceblue;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            z-index: 999;
+            background-color: rgb(235, 233, 226);
+        }
+
+        .arrow-left {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            left: 14px;
+            top: 7px;
+            font-size: 30px;
+            font-weight: 600;
+            color: rgb(17, 15, 92);
+
+        }
+
+        .arrow-right {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            left: 18px;
+            top: 8px;
+            font-size: 30px;
+            font-weight: 600;
+            color: brown;
+        }
+
+        .ar-h1 {
+            font-size: 10px;
+            font-weight: 600;
+            padding-left: 10px;
+
+        }
+
+        .ar-p {
+            font-size: 16px;
+            font-weight: 300;
+            padding-left: 10px;
+           
+        }
+    </style>
+    <title>陶瓷画廊</title>
+</head>
+
+<body>
+    <div id="tip">
+        <div class="title">
+            A658陶瓷画廊
+
+        </div>
+        <div class="title1">
+
+            (图源均来自故宫博物院数字博物馆)
+        </div>
+        <div class="articles">
+            <div class="ar-left">
+                <a href="javascript:;" class="arrow-left">&lt</a>
+            </div>
+            <div class="ar-right">
+                <a href="javascript:;" class="arrow-right">></a>
+            </div>
+            <ul class="ar-ul">
+
+            </ul>
+        </div>
+        <ol class="ar-circle"></ol>
+
+    </div>
+    <script>
+        var ul = document.querySelector('.ar-ul');
+        var arr = new Array();
+
+        var data = {
+                1: { name: "陶缸" },
+                2: { name: "白陶刻饕餮纹双系壶" },
+                3: { name: "原始瓷青釉提梁盉" },
+                4: { name: "原始瓷青釉划花双系罐" },
+                5: { name: "青釉刻花三足瓷樽" },
+                6: { name: "青釉堆塑楼阁人物谷仓罐" },
+                7: { name: "青釉莲花尊" },
+                8: { name: "白釉罐" },
+                9: { name: "三彩盖罐" },
+                10: { name: "定窑白釉双系罐" },
+                11: { name: "黄釉凤首瓶" },
+                12: { name: "褐釉彩绘虎形枕" },
+                13: { name: "龙泉窑青釉琮式瓶" },
+                14: { name: "灵武窑黑釉剔花瓶" },
+                15: { name: "景德镇窑蓝釉白龙纹盘" },
+                16: { name: "青花五彩“大吉”花卉纹葫芦瓶" },
+                17: { name: "粉彩镂空云龙纹夔凤耳转心瓶" },
+                18: { name: "粉彩兰花纹花觚" },
+            };
+
+            var data1 = {
+                1: { name: "新石器时代" },
+                2: { name: "商代" },
+                3: { name: "春秋战国" },
+                4: { name: "西周" },
+                5: { name: "东汉" },
+                6: { name: "三国时期" },
+                7: { name: "北朝" },
+                8: { name: "隋代" },
+                9: { name: "唐代" },
+                10: { name: "五代" },
+                11: { name: "辽" },
+                12: { name: "金" },
+                13: { name: "宋代" },
+                14: { name: "西夏" },
+                15: { name: "元" },
+                16: { name: "明" },
+                17: { name: "清乾隆" },
+                18: { name: "民国" },
+            };
+        for (var i = 1; i <= 18; i++) {
+            var li = document.createElement('li');
+            var div = document.createElement('div');
+            var img = document.createElement('img');
+            var text = document.createElement('div');
+            var title = document.createElement('h1');
+            var p = document.createElement('p');
+
+            title.classList.add('ar-h1');
+            // title.innerHTML=" 。。。。。。"
+            title.innerHTML = '<h1>' + data[i].name + '</h1>';
+            p.classList.add('ar-p');
+
+            p.innerHTML='<p>'+data1[i].name+'</p>';
+            // p.innerHTML = '2022 8 5';
+            div.classList.add('text');
+            text.style.height = '119px';
+            text.style.width = '391px';
+            div.style.height = '370px';
+            div.style.width = '391px';
+            // img.src = 'images/' + i + '.jpg';
+            img.src =  i + '.jpg';
+            img.style.width = '391px';
+            img.style.height = '280px';
+            div.appendChild(img);
+            div.appendChild(title);
+            div.appendChild(p);
+            li.appendChild(div);
+            ul.appendChild(li);
+            arr.push(li);
+
+
+        }
+
+        //     var data[
+        //         {passage:'1'},
+        //     {passage:'2'},{passage:'3'},{passage:'4'},{passage:'5'},{passage:'6'}
+        // ];
+        // for(var i =0;i <data.length;i++){
+        //     var title =document.createElement('h1');
+        //     title.innerHTML='<h1>'+value.passage +'</h1>'
+        // }
+        // 存储轮播样式
+        var len = arr.length - 1;
+        arr[len - 2].style.left = '50px';
+        arr[len - 1].style.left = '450px';
+        arr[len].style.left = '850px';
+        arr[len - 4].style.left = '1350px';
+        arr[len - 3].style.left = '-500px';
+        arr[len - 1].style.zIndex = 100;
+        arr[len - 1].style.boxShadow = '0px 0px 10px 0px';
+
+
+        var modal = function () {
+            arr[len - 2].style.left = '50px';
+            arr[len - 1].style.left = '450px';
+            arr[len].style.left = '850px';
+            arr[len - 4].style.left = '1350px';
+            arr[len - 3].style.left = '-500px';
+            arr[len - 1].style.zIndex = 100;
+            arr[len - 1].style.boxShadow = '0px 0px 20px 0px';
+        }
+
+        function Toright() {
+            var hide = arr[arr.length - 1];
+            arr.pop();
+            arr.unshift(hide);
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.zIndex = i;
+                arr[i].style.boxShadow = '0 0 0 0';
+            }
+            modal();
+        }
+
+
+
+        function Toleft() {
+            var show = arr[0];
+            arr.shift();
+            arr.push(show);
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.zIndex = i;
+                arr[i].style.boxShadow = '0 0 0 0';
+            }
+            modal();
+        }
+
+        var left = document.querySelector('.ar-left');
+        var right = document.querySelector('.ar-right');
+        left.onclick = function () {
+            Toleft();
+        }
+        right.onclick = function () {
+            Toright();
+        }
+    </script>
+</body>
+
+</html>
